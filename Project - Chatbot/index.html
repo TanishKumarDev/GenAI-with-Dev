@@ -3,17 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>GenAI Chatbot</title>
+  <!-- Tailwind CSS CDN: For responsive, utility-first styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Tailwind config: Dark mode by default -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a1a2e',  // Dark navy
+            secondary: '#16213e', // Deeper blue
+            accent: '#3b82f6',    // Blue for user messages
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./style.css"> <!-- Fallback for custom overrides -->
 </head>
-<body>
-  <div class="chat-container">
-    <div id="chat-box"></div>
-    <div class="user-input">
-      <input type="text" id="user-input" placeholder="Type your message...">
-      <button id="send-button">Send</button>
+<body class="dark bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+  <!-- Main chat container: Responsive (full-width on mobile) -->
+  <div class="w-full max-w-md h-[80vh] bg-primary rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+    <!-- Header: Fixed top bar -->
+    <div class="bg-secondary p-6 text-center border-b border-gray-700">
+      <h1 class="text-xl font-semibold">🤖 GenAI Assistant</h1>
+    </div>
+    
+    <!-- Chat messages area: Scrollable, auto-height -->
+    <div id="chat-box" class="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-800">
+      <!-- Messages will be appended here dynamically -->
+    </div>
+    
+    <!-- Input area: Bottom fixed, flex for responsiveness -->
+    <div class="p-6 bg-primary border-t border-gray-700 flex gap-2">
+      <input 
+        type="text" 
+        id="user-input" 
+        placeholder="Type your message..." 
+        class="flex-1 p-3 bg-gray-700 border border-gray-600 rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+      >
+      <button 
+        id="send-button" 
+        class="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full font-medium transition-all duration-200"
+      >
+        Send
+      </button>
+    </div>
+    <button 
+        id="clear-button" 
+        class="px-4 py-3 bg-red-600 hover:bg-red-700 rounded-full font-medium text-sm transition-all duration-200"
+      >
+        Clear
+      </button>
     </div>
   </div>
-  <script src="./appscript.js"></script>
+  
+  <!-- Script: Loads after DOM for event handling -->
+  <script src="./script.js"></script>
 </body>
 </html>

@@ -1,61 +1,30 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
+/* Custom overrides for Tailwind (e.g., message animations) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  animation: fadeIn 0.3s ease-in;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.chat-container {
-  width: 400px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* Scrollbar: Dark theme */
+#chat-box::-webkit-scrollbar {
+  width: 4px;
 }
 
-#chat-box {
-  height: 300px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
+#chat-box::-webkit-scrollbar-track {
+  background: #1f2937;
 }
 
-.user {
-  text-align: right;
-  color: blue;
-  margin-bottom: 5px;
+#chat-box::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 2px;
 }
 
-.bot {
-  text-align: left;
-  color: green;
-  margin-bottom: 5px;
-}
-
-.user-input {
-  display: flex;
-  gap: 10px;
-}
-
-input {
-  flex: 1;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-button {
-  padding: 8px 12px;
-  border-radius: 5px;
-  border: none;
-  background: #4CAF50;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #45a049;
-}
+/* Ensure Tailwind dark mode applies */
+.dark .bg-primary { background-color: #1a1a2e; }
+.dark .bg-secondary { background-color: #16213e; }

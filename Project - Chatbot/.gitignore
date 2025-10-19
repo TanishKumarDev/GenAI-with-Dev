@@ -1,3 +1,13 @@
-# Ignore gitignore file
-/node_modules
-/.env
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Env
+.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
